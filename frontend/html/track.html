@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Track Your Order - Mobesong Grills </title>
+        <link rel="stylesheet" href="../css/main.css" />
+    </head>
+
+    <body>
+        <header class="site-header">
+            <a class="brand" href="../../index.html"><span class="flame">🔥</span> Mobesong Grills</a>
+            <div class="header-actions">
+                <a class="icon-btn" href="../../index.html"> Back to menu </a>
+            </div>
+        </header>
+
+        <section class="page-section">
+            <div class="wrap" style="max-width:480px">
+                <div class="section-head">
+                    <p class="eyebrow">Track</p>
+                    <h2>Nama e setse hakae?</h2>
+                </div>
+                <div class="form-error" id="trackError"></div>
+
+                <form id="trackForm">
+                    <div class="field">
+                        <label for="ticketNumber">Ticket number</label>
+                        <input type="text" id="ticketNumber" placeholder="B-0142" required />
+                    </div>
+                    <div class="field">
+                        <label for="trackPhone">Phone number used at checkout</label>
+                        <input type="tel" id="trackPhone" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Check status</button>
+                </form>
+
+                <div id="trackResult" style="margin-top:28px"></div>
+            </div>
+        </section>
+
+        <footer>Mobesong Grills &middot; Live grill queue tracking</footer>
+
+        <script src="../js/api.js"></script>
+        <script src="../js/track.js"></script>
+    </body>
+</html>

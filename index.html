@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Mobesong Grills</title>
+        <link rel="stylesheet" href="./frontend/css/main.css">
+    </head>
+    <body>
+        <header class="site-header">
+            <a class="brand" ><span class="flame">🔥</span> Mobesong Grills</a>
+            <div class="header-actions">
+                <a class="icon-btn" href="./frontend/html/track.html"> Track Order </a>
+                <button class="icon-btn" id="openCartBtn">
+                    Cart
+                    <span class="cart-count" id="cartCount" hidden>0</span>
+                </button>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-inner">
+                <div>
+                    <p class="eyebrow"> Pre-order &amp; skip the queue</p>
+                    <h1> Order now <span class="accent"> we put it on the fire immediately </span></h1>
+                    <p class="lede"> Pick your cuts, make your payment, and we'll take care of the rest</p>
+                    <div class="hero-ctas">
+                        <a href="#menu" class="btn btn-primary"> Order Now</a>
+                        <a href="#board" class="btn btn-ghost"> See the queue</a>
+                    </div>
+                </div>
+
+                <div class="board-preview">
+                    <h3> On the fire now <span class="live"> live </span></h3>
+                    <div id="heroBoard"><p class="borad-empty"> Loading queue...</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="menu">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow"> The Cut</p>
+                    <h2> Choose your meat</h2>
+                </div>
+                <div class="category-tabs" id="categoryTabs"></div>
+                <div class="menu-grid" id="menuGrid">
+                    <p class="board-empty"> Loading menu...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="board">
+            <div class="wrap">
+                <div class="section-head">
+                    <p class="eyebrow"> The Board</p>
+                    <h2> Live grill queue </h2>
+                </div>
+                <div class="board-preview" style="max-width:520px" id="fullBoardWrap">
+                    <h3> All active tickets <span class="live"> live</span></h3>
+                    <div id="fullBoard"> <p class="board-empty">Loading...</p></div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Mobesong Grills &middot; Cash, Card, Mpesa and EcoCash accepted
+        </footer>
+
+        <!-- Cart -->
+         <div class="drawer-backdrop" id="drawerBackdrop"></div>
+         <aside class="drawer" id="cartDrawer" aria-label="Shopping cart">
+            <div class="drawer-header">
+                <h3> Your Order</h3>
+                <button class="close-btn" id="closeCartBtn" aria-label="Close cart">&times;</button>
+            </div>
+            <div class="drawer-body" id="cartBody">
+                <p class="empty-cart"> Nothing on the fire yet - add some meat</p>
+            </div>
+            <div class="drawer-footer">
+                <div class="totals-row"><span> Subtotal</span><span id="cartSubtotal"> M 0.00</span></div>
+                <div class="totals-row grand"><span> Total</span><span id="cartTotal"> M 0.00</span></div>
+                <button class="btn btn-primary btn-block" id="checkoutBtn" style="margin-top:14px" disabled> Checkout</button>
+            </div>
+         </aside>
+
+         <!-- Checkout cart-->
+          <div class="modal-backdrop" id="checkoutBackdrop">
+            <div class="modal">
+                <h3> Checkout</h3>
+                <p class="sub"> We'll text updates to your number when your order is ready</p>
+                <div class="form-error" id="checkoutError"></div>
+                <form id="checkoutForm">
+                    <div class="field">
+                        <label for="customerName"> Full Name</label>
+                        <input type="text" id="customerName" required />
+                    </div>
+                    <div class="field">
+                        <label for="phone"> Phone Number</label>
+                        <input type="tel" id="phone" placeholder=" e.g. 5012 3456" required autocomplete=""/>
+                    </div>
+                    <div class="field">
+                        <label> Payment Method</label>
+                        <div class="pay-options">
+                            <label class="pay-option">
+                                <input type="radio" name="paymentMethod" value="bank_card" />
+                                <span><span class="label"> Card payment</span><span class="hint"> Swipe on pickup</span></span>
+                            </label>
+                            <label class="pay-option">
+                                <input type="radio" name="paymentMethod" value="bank_eft"  />
+                                <span><span class="label"> Instant EFT</span><span class="hint"> Ewallet</span></span>
+                            </label>
+                            <label class="pay-option">
+                                <input type="radio" name="paymentMethod" value="mobile_money"  />
+                                <span><span class="label"> Mobile money</span><span class="hint"> EcoCash / M-Pesa</span></span>
+                            </label>
+                            <label class="pay-option">
+                                <input type="radio" name="paymentMethod" value="cash" checked />
+                                <span><span class="label"> Cash on collection</span><span class="hint"> Cash on pickup</span></span>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" id="placeOrderBtn"> Place Order </button>
+                </form>
+            </div>
+          </div>
+
+          <!--Confirm order-->
+          <div class="modal-backdrop" id="confirmBackdrop">
+            <div class="modal">
+                <h3> You've joined the queue</h3>
+                <p class="sub"> Save your ticket number to track your order</p>
+                <div class="ticket-stub">
+                    <p class="eyebrow"> Ticket </p>
+                    <div class="big-ticket" id="ticketNumberOut"> B-0000</div>
+                    <div class="eta" id="ticketEtaOut"> Estimated Collection Time: - </div>
+                </div>
+                <button class="btn btn-primary btn-block" id="confirmDoneBtn"> Done </button>
+            </div>
+          </div>
+
+          <script src="./frontend/js/api.js"></script>
+          <script src="./frontend/js/app.js"></script>
+    </body>
+</html>
