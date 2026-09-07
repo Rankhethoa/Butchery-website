@@ -114,8 +114,5 @@ Visit `http://localhost:5001` (or your ngrok URL) for the storefront, or
 - Browsers can cache `GET` API responses; all fetches from `api.js` send
   `cache: "no-store"`, and `server.js` sets `Cache-Control: no-store` on
   every `/api/*` response, to keep the live queue board from going stale.
-
-
-Card: 5436 8862 6984 8367
-Expiry: any future date
-CVV: 123
+<img width="1407" height="796" alt="Screenshot 2026-09-07 at 11 49 06" src="https://github.com/user-attachments/assets/48084bab-e3ce-4ae8-9dca-9d708be6d6e2" />
+  
